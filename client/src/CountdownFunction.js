@@ -6,6 +6,7 @@ const audio = new Audio('src/snd/clock.mp3');
 const image = document.getElementById('swapImage');
 let players = [];
 
+
 // **** PAGE 1 ******
     // Preliminary Name Entry Function
     function commitName () {
@@ -18,6 +19,23 @@ let players = [];
         // clear field
         document.getElementById("nameField").value = '';
     };
+
+
+    // Chat events
+    const sock = io;
+    const writeEvent = (text) => {
+        //<ul> element
+        const parent = document.querySelector('#events');
+        
+        // <li element>
+        const el = document.createElement('li');
+        el.innerHTML = text;
+
+        // append to child
+        parent.appendChild(el);
+    };
+    writeEvent('Chat:');
+    sock.on('message', writeEvent);
 
 
 // ***** PAGE 2******

@@ -13,7 +13,7 @@ const getRandomInt = (max) => Math.floor(Math.random() * max);
 function generator(choice) {
     const vowelAudio = new Audio('src/snd/vowel.ogg');
     const consonantAudio = new Audio('src/snd/consonant.mp3')    
-if (conundrum.length < 20) {
+if (conundrum.length < 18) {
      if (choice === "vowel") {
         conundrum = conundrum + vowelPicker[getRandomInt(vowelPicker.length)];
         vowelAudio.play();
@@ -24,8 +24,11 @@ if (conundrum.length < 20) {
     
     // Output result to HTML
     conundrumOutput.innerHTML = conundrum;
+} else {
+    window.alert('Letter Limit Reached!');
+}
 
-}};
+};
 
 // Start Countdown
 async function startCountdown() {

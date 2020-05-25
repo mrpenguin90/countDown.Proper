@@ -38,12 +38,12 @@ let players = [];
     sock.on('message', writeEvent);
 
 
-// ***** PAGE 2******
-    // Generates the random vowel/constanant location in the array
-    const getRandomInt = (max) => Math.floor(Math.random() * max);
 
+
+// ***** PAGE 2******
     // Actual wordGen
     function generator(choice) {
+        const getRandomInt = (max) => Math.floor(Math.random() * max);
         const vowelAudio = new Audio('src/snd/vowel.ogg');
         const consonantAudio = new Audio('src/snd/consonant.mp3')    
     if (conundrum.length < 18) {
@@ -81,4 +81,6 @@ let players = [];
         image.src = "src/img/clock_30_img.png";
         audio.pause();
         audio.currentTime = 0.0;
+        conundrum = '';
+        conundrumOutput.innerHTML = conundrum;
     };

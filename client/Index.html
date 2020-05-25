@@ -1,29 +1,45 @@
 <html>
-    <body>
-        <!-- Title -->
-        <h1> 
-            WELCOME TO STREET COUNTDOWN
-        </h1>
-        <br/>
-        <!-- Description -->
-        <h2>
-            Players, enter your names below:
-        </h2>
-        <!-- Buttons -->
-        <input type="text" placeholder="name..." id="nameField">
-        <br/>
-        <input type="button" value="Commit" onclick="commitName()">
-        <br/>
-        <input type="button" value="Lets Play!" onclick="location.href = 'index.html'">
-        <!-- Player Names -->
-        <h3>
-            <span id="playerNames"></span>
-        </h3>
-        <ul id="events">
-        </ul>
-        <br/><br/>
-        <!--JS File-->
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="src/CountdownFunction.js"></script>
-    </body>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+
+<body>
+    
+    <!--GIF Countdown image-->
+    <figure>
+        <img class="swapImage" id="swapImage" src="src/img/clock_30_img.png" height="517" width="919">
+    </figure>
+    <br/>
+    <br/>
+    <br/>
+    <!--Vowel & consonant Buttons-->
+    <div class="buttons">
+        <form>
+            <input type="button" class="button1" value="Vowel" onclick="generator('vowel')" />
+            <input type="button" class="button2" value="Consonant" onclick="generator('consonant')" />
+        </form>
+    </div>
+    <br/>
+    <br/>
+    <!--Conundrum-->
+    <div class="conundrumDiv">
+        <h2 class="conundrumText">
+            Today's Conundrum:&nbsp;&nbsp; <br/>
+            <span id="conundrumOutput"></span>
+        </h2>   
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <!--Let's Countdown button-->
+    <form>
+        <input type="button" class="button4" value="Play Countdown!" onclick="startCountdown()" />
+        <input type="button" class="button3" value="Stop Countdown!" onclick="stopCountdown()" />
+    </form>
+    <!--JS File-->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="src/CountdownFunction.js"></script>
+</body>
+
 </html>
